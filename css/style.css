@@ -93,6 +93,10 @@ section.container input {
     padding: 0 15px;
     font-size: 20px;
 }
+
+/**********
+        Mobile não tera 
+************/
 section.container div.sugestao{
     font-size: 20px;
     display: flex;
@@ -111,9 +115,14 @@ section.container > p {
     margin-bottom: 20px;
 }
 
-/* Botão */
+/*  
+    Botão de Pesquisar Fronte não tera
+    ative display: inline-block;
+    desative display: none;
+ */
+
 .button {
-    display: inline-block;
+    display: none;
     font-size: 16px;
     font-weight: 600;
     color: rgb(255, 255, 255);
@@ -131,4 +140,24 @@ section.container > p {
   input::placeholder {
       color : #ccc;
       font-size: 16px;
+  }
+  div#estatistica {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1px;
+  }
+  div#estatistica div{
+      width: 200px;
+      height: 100px;
+      background-color: #fff;
+      padding-top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  div#estatistica div h2{
+      color : rgb(13, 1, 41);
+  }
+  div#estatistica div span{
+      font-size: 18px;
   }

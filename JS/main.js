@@ -38,15 +38,30 @@ function show(e){
 }
 async function loadCountry(){
     const input =  document.querySelector('input').value;
-    await fetch('../config/api.json')
-        .then((Dados)=>{
-            return Dados.text();
-        }).then((date)=>{
-            var date = JSON.parse(date);
+    await   axios({
+        "method":"GET",
+        "url":"https://covid-193.p.rapidapi.com/statistics",
+        "headers":{
+        "content-type":"application/octet-stream",
+        "x-rapidapi-host":"covid-193.p.rapidapi.com",
+        "x-rapidapi-key":"00c807a539msh1b3934baa63aa46p1456f6jsnbd0191efd24b"
+      }
+      }).then((response)=>{
+        return response.data;
+      }).then((date)=>{
+        
             date.response.forEach((e, id)=>{
                 if(e.country.includes(input)){
                     show(e);
                 }
-            });
         });
+      }).catch((error)=>{
+        console.log(error)
+    });
+ //   fetch('../config/api.json')
+  //      .then((Dados)=>{
+   //            return Dados.text();
+   //        }).then((date)=>{
+            
+    //       });
 }

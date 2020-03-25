@@ -2247,10 +2247,10 @@
         "country": "Angola",
         "cases": {
             "new": "+1",
-            "active": 2,
+            "active": 3,
             "critical": 0,
             "recovered": 0,
-            "total": 2
+            "total": 3
         },
         "deaths": {
             "new": null,

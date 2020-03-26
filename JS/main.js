@@ -1,9 +1,6 @@
 document.querySelector('button.button').addEventListener('click', loadCountry);
-function time(){
-
-}
 function show(e){
-    console.log(e);
+  
     document.querySelector('[data-js="result"]').innerHTML = `
     <div>
     <h1> ${e.country} </h1>
@@ -40,7 +37,15 @@ function show(e){
 }
 async function loadCountry(){
     const input =  document.querySelector('input').value;
-    await   axios({
+    document.querySelector('[data-js="result"]').innerHTML = `
+        <img
+        src="./image/loading.gif"
+        alt="Covid-19"
+        class="loading"
+    />
+    `;
+   
+    await axios({
         "method":"GET",
         "url":"https://covid-193.p.rapidapi.com/statistics",
         "headers":{

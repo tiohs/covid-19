@@ -58,7 +58,7 @@ async function loadCountry(){
       }).then((date)=>{
         
             date.response.forEach((e, id)=>{
-                if(e.country.includes(input)){
+                if(e.country.includes(input.slice(0, 1).toLocaleUpperCase() + input)){
                     show(e);
                 }
         });

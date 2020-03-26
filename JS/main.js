@@ -8,7 +8,7 @@ function show(e){
 <span>Data ${e.time.slice(0,10)}</span>
 <div id="estatistica">
     <div>
-        <h3>Cases New</h3>
+        <h3>Casos Novos</h3>
         <span>${e.cases.new}</span>
     </div>
     <div>
@@ -16,20 +16,20 @@ function show(e){
         <span>${e.cases.total}</span>
     </div>
     <div>
-        <h3>Active</h3>
+        <h3>Ativo</h3>
         <span>${e.cases.active}</span>
     </div>
     <div>
-        <h3>Critical</h3>
+        <h3>Crítico</h3>
         <span>${e.cases.critical}</span>
     </div>
     <div>
-        <h3>Recovered</h3>
+        <h3>Recuperado</h3>
         <span>${e.cases.recovered}</span>
     </div>
     
     <div>
-        <h3>Deths Total</h3>
+        <h3>Total de Mortes</h3>
         <span>${e.deaths.total}</span>
     </div>
 </div>

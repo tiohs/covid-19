@@ -1,12 +1,14 @@
 document.querySelector('button.button').addEventListener('click', loadCountry);
+function time(){
 
+}
 function show(e){
     console.log(e);
     document.querySelector('[data-js="result"]').innerHTML = `
     <div>
     <h1> ${e.country} </h1>
 </div>
-<span>Data 2020-03-21 22:36</span>
+<span>Data ${e.time.slice(0,10)}</span>
 <div id="estatistica">
     <div>
         <h3>Cases New</h3>

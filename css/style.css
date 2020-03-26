@@ -28,17 +28,19 @@
   body {
     background-color: #fff;
     height: 100vh;
-    font-family: "Titulo";
+    font-family: "SubTitulo";
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
   }
 h1 {
+    font-family: "Titulo";
     color: rgb(75, 75, 75);
     font-size: 3.6rem;
     line-height: 4.6rem;
 }
   
 h2 {
+    font-family: "Titulo";
     color: rgb(75, 75, 75);
     font-size: 2.8rem;
     line-height: 3.8rem;
@@ -66,7 +68,7 @@ span {
     padding: 15px 0;
   }
   
-  header nav ul {
+  header nav > ul {
     display: flex;
   }
   
@@ -82,7 +84,10 @@ span {
     padding: 10px;
     transition: all 250ms linear 0s;
   }
-  
+  section#dicas, section#dicas ul{
+      margin: 30px;
+  }
+ 
   header nav ul li a:hover {
     background: rgba(0,0,0, 0.15)
   }
@@ -229,6 +234,17 @@ div#sobre {
       -ms-flex-item-align: center;
       margin-bottom: 10px;
     }
-
-   
+}
+@media (max-width: 1000px){
+    html {
+        font-size: 97.5%;
+    }
+    div#estatistica div{
+      width: 150px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      -ms-flex-item-align: center;
+      margin-bottom: 10px;
+    }
 }

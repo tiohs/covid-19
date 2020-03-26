@@ -1,6 +1,6 @@
 document.querySelector('button.button').addEventListener('click', loadCountry);
 function show(e){
-  
+
     document.querySelector('[data-js="result"]').innerHTML = `
     <div>
     <h1> ${e.country} </h1>
@@ -35,6 +35,7 @@ function show(e){
 </div>
     `;
 }
+
 async function loadCountry(){
     const input =  document.querySelector('input').value;
     document.querySelector('[data-js="result"]').innerHTML = `
@@ -44,7 +45,12 @@ async function loadCountry(){
         class="loading"
     />
     `;
-   
+    var state = {
+        state : false,
+        setState : function(valor){
+            return state.state = valor;
+        }
+    }
     await axios({
         "method":"GET",
         "url":"https://covid-193.p.rapidapi.com/statistics",
@@ -58,13 +64,21 @@ async function loadCountry(){
       }).then((date)=>{
         
             date.response.forEach((e, id)=>{
-                if(e.country.includes(input.slice(0, 1).toLocaleUpperCase() + input)){
-                    show(e);
-                }
-        });
+                    if(e.country.includes(input.slice(0, 1).toLocaleUpperCase() + input.slice(1))){
+                        show(e);
+                        state.setState(true);
+                    }
+                });
       }).catch((error)=>{
         console.log(error)
     });
+    if(!state.state){
+        document.querySelector('[data-js="result"]').innerHTML = `
+            <h2> País não encontrado ! -_- </h2>
+            
+        
+    `;
+    }
  //   fetch('../config/api.json')
   //      .then((Dados)=>{
    //            return Dados.text();

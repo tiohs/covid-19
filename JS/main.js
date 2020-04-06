@@ -1,7 +1,32 @@
-document.querySelector('button.button').addEventListener('click', loadCountry);
-function show(e){
+﻿// 'Elena Hamilton'.match(/ha/gi)
+(async function () {
+    var state = {
+        state: false,
+        setState: function (valor) {
+            return state.state = valor;
+        },
+        dados: '',
+    }
+    await axios({
+        "method": "GET",
+        "url": "https://covid-193.p.rapidapi.com/statistics",
+        "headers": {
+            "content-type": "application/octet-stream",
+            "x-rapidapi-host": "covid-193.p.rapidapi.com",
+            "x-rapidapi-key": "00c807a539msh1b3934baa63aa46p1456f6jsnbd0191efd24b"
+        }
+    }).then((response) => {
+        return response.data;
+    }).then((date) => {
+        state.dados = date;
+        document.querySelector("#valor").innerHTML = JSON.stringify(date) ;
+    }).catch((error) => {
+        console.log(error)
+    });
+    document.querySelector('button.button').addEventListener('click', loadCountry);
 
-    document.querySelector('[data-js="result"]').innerHTML = `
+    function show(e) {
+        document.querySelector('[data-js="result"]').innerHTML = `
     <div>
     <h1> ${e.country} </h1>
 </div>
@@ -34,55 +59,36 @@ function show(e){
     </div>
 </div>
     `;
-}
+    }
 
-async function loadCountry(){
-    const input =  document.querySelector('input').value;
-    document.querySelector('[data-js="result"]').innerHTML = `
+
+
+
+    function loadCountry() {
+        const input = document.querySelector('input').value;
+        // img in loading 
+
+        document.querySelector('[data-js="result"]').innerHTML = `
         <img
         src="./image/loading.gif"
         alt="Covid-19"
         class="loading"
     />
     `;
-    var state = {
-        state : false,
-        setState : function(valor){
-            return state.state = valor;
+        state.dados.response.forEach((e, id) => {
+            if (e.country.includes(input.slice(0, 1).toLocaleUpperCase() + input.slice(1))) {
+                show(e);
+                state.setState(true);
+            }
+        });
+        // Fazendo requisição 
+
+        // Caso não tiver valor 
+        if (!state.state) {
+            document.querySelector('[data-js="result"]').innerHTML = `
+            <h2> País não encontrado ! -_- </h2>
+    
+    `;
         }
     }
-    await axios({
-        "method":"GET",
-        "url":"https://covid-193.p.rapidapi.com/statistics",
-        "headers":{
-        "content-type":"application/octet-stream",
-        "x-rapidapi-host":"covid-193.p.rapidapi.com",
-        "x-rapidapi-key":"00c807a539msh1b3934baa63aa46p1456f6jsnbd0191efd24b"
-      }
-      }).then((response)=>{
-        return response.data;
-      }).then((date)=>{
-        
-            date.response.forEach((e, id)=>{
-                    if(e.country.includes(input.slice(0, 1).toLocaleUpperCase() + input.slice(1))){
-                        show(e);
-                        state.setState(true);
-                    }
-                });
-      }).catch((error)=>{
-        console.log(error)
-    });
-    if(!state.state){
-        document.querySelector('[data-js="result"]').innerHTML = `
-            <h2> País não encontrado ! -_- </h2>
-            
-        
-    `;
-    }
- //   fetch('../config/api.json')
-  //      .then((Dados)=>{
-   //            return Dados.text();
-   //        }).then((date)=>{
-            
-    //       });
-}
+})();

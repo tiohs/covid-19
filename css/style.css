@@ -1,4 +1,4 @@
-/* Normalize  */
+﻿/* Normalize  */
 @font-face{
   font-family: 'SubTitulo';
   src: url('./roboto/Roboto-Thin.woff');
@@ -118,11 +118,12 @@ section.containerSobre > div i{
 
 
 section.container input {
-  border:1px solid #666;
+  border: 2px solid rgb(113, 89, 193);
   border-radius: 2px;
   height: 45px;
   padding: 0 15px;
   font-size: 2.0rem;
+  border-width: 0px 0px 0.8px 0px;
 }
 .loading {
   width: 100%;
@@ -140,7 +141,7 @@ section.container div.sugestao{
 }
 
 section.container div.sugestao p{
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   max-width: 450px;
   padding: 1px;
@@ -180,8 +181,11 @@ div#sobre > div {
   opacity: 0.9;
 }
 input::placeholder {
-    color : #666;
+    color : rgba(204, 204, 204, 0.589);
     font-size: 1.6rem;
+}
+input {
+text-align: center;
 }
 div#estatistica {
  

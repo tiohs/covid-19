@@ -92,3 +92,41 @@
         }
     }
 })();
+(async function () {
+    const valorCountry = {
+        stateGet : [],
+        stateSet : function (valor){
+            return this.stateGet = valor;
+        },
+        autoComplete : function (country){
+            const countryComplete =  this.stateGet;
+            return countryComplete.filter((value) => {
+                return value.country.includes(country);
+            })
+        }
+    };
+
+    await fetch('./JS/req.json')
+            .then((dados)=> dados.json())
+            .then((dados)=> {
+                return valorCountry.stateSet(dados.response);
+            })
+            .catch((error)=> {
+                console.log(error)
+            });
+
+        document.querySelector('#input').addEventListener("input", autocompleteDisplay)
+
+    function autocompleteDisplay({target}){
+        const dataCamp = target.value;
+        if(dataCamp.length){
+            const valueComplet = valorCountry.autoComplete(dataCamp);
+            document.querySelector('#sugestao').innerHTML = `
+                <p>${valueComplet[0].country}</p>
+                <p>${valueComplet[1].country}</p>
+                <p>${valueComplet[2].country}</p>
+            `;
+        }
+        
+    }
+})();

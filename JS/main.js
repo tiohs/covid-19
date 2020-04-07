@@ -121,11 +121,14 @@
         const dataCamp = target.value;
         if(dataCamp.length){
             const valueComplet = valorCountry.autoComplete(dataCamp);
-            document.querySelector('#sugestao').innerHTML = `
-                <p>${valueComplet[0].country}</p>
-                <p>${valueComplet[1].country}</p>
-                <p>${valueComplet[2].country}</p>
-            `;
+            document.querySelector('#sugestao').innerHTML = ``;
+            for (let index = 0; index < 3; index++) {
+                document.querySelector('#sugestao').innerHTML += `
+                    <p>${valueComplet[index].country}</p>
+                    `;
+        }          
+        }else {
+            document.querySelector('#sugestao').innerHTML = ``;
         }
         
     }

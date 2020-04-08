@@ -105,10 +105,12 @@
             })
         }
     };
+    const Sugestao = document.querySelector('#sugestao');
     function addEvente(){      
         document.querySelectorAll('.sugg').forEach((a)=>{
             a.addEventListener('click', ()=>{
                 document.querySelector('input').value = a.childNodes[0].wholeText;
+                Sugestao.innerHTML = '';
                 loadCountry();
             })
         })
@@ -125,7 +127,6 @@
     document.querySelector('#input').addEventListener("input", autocompleteDisplay)
 
     function autocompleteDisplay({ target }) {
-        const Sugestao = document.querySelector('#sugestao');
         const dataCamp = target.value;
         if (dataCamp.length) {
             const valueComplet = valorCountry.autoComplete(dataCamp);

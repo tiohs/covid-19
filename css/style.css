@@ -15,16 +15,23 @@
   outline: 0;
 }
 .logo {
-  margin: 5px;
+  margin: 1px;
   font-size: 2.5rem;
-  background-color: #fff;
+  color: #fff;
+  background-color: #28a745;
   border-radius: 20px;
   padding: 8px;
-  color: rgb(112, 193, 89);
+ 
+}
+#logo{
+  color: white;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding: 10px;
+  transition: all 250ms linear 0s;
+  text-decoration: none !important ;
 }
 .logo:hover {
-  color: #fff;
-  background-color: rgb(112, 193, 89);
   transform: translate(0, -5%);
 }
 html{
@@ -56,7 +63,7 @@ span {
   font-size: 1.6rem;
 }
 header {
-  background-color: rgb(112, 193, 89);
+  background-color: #28a745;
 }
 
 header .container {
@@ -83,7 +90,7 @@ header nav ul li {
   list-style: none;
 }
 
-header nav ul li a {
+a {
   text-decoration: none;
   color: white;
   text-transform: uppercase;
@@ -121,13 +128,13 @@ section.containerSobre > div {
 section.containerSobre > div i{
   margin-top: 80px;
   font-size: 4.6rem;
-  color: rgb(112, 193, 89);
+  color: #28a745;
 }
 
 
 
 section.container input {
-  border: 2px solid rgb(112, 193, 89);
+  border: 2px solid #28a745;
   border-radius: 2px;
   height: 45px;
   padding: 0 15px;
@@ -191,7 +198,7 @@ div#sobre > div {
   font-size: 1.6rem;
   font-weight: 600;
   color: #fff;
-  background-color: rgb(112, 193, 89);
+  background-color: #28a745;
   margin: 15px 0px 0px;
   padding: 12px 30px;
   text-decoration: none;
@@ -209,35 +216,7 @@ input::placeholder {
 input {
 text-align: center;
 }
-div#estatistica {
- 
-  display: grid;
-  grid-template-columns:1fr 1fr;
-  grid-gap:10px;
-}
-div#estatistica div{
-    width: 200px;
-    height: 100px;
-    background-color: #fff;
-    padding-top: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: -1px 1px 0px 2px rgba(0,0,0, 0.05);
-    border: 0;
-    border-radius: 2px;
-}
-div#estatistica div h3, span{
-    color : #fff;
-}
-div#estatistica div h3{
-    color: #333;
-    font-size: 1.8rem;
-}
-div#estatistica div span{
-    font-size: 2.8rem;
-    color: #999;
-}
+
 /* Sobre */
 .img {
   background-image: url('../image/79509414_2781078612119003_7081528428238733312_n.jpg');
@@ -250,6 +229,41 @@ div#estatistica div span{
   height: 200px;
   width: 200px;
   box-shadow: -2px 2px 6px 2px rgba(0, 0, 0, 0.424);
+}
+section.containerr {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+div#valueContruy {
+    border: 1px solid red;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    word-wrap: break-word;  
+    flex-wrap: wrap; 
+    
+    align-items: center;
+    margin: 0 auto;
+}
+div#valueContruy div{
+  width: 200px;
+  position: relative;
+  border: 1px solid red;
+  margin: 10px;
+  text-align: center;
+
+}
+div#valueContruy h2, span{
+  padding: 20px;
+}
+div#valueContruy span {
+  font-size: 2.5rem;
+}
+div#valueContruy h2{
+  font-size: 1.5rem;
 }
 div#sobre {
   display: flex;
@@ -271,6 +285,13 @@ div#sobre {
     -ms-flex-item-align: center;
     margin-bottom: 10px;
   }
-
+  div#valueContruy div{
+    width: 500px;
+    position: relative;
+    border: 1px solid red;
+    margin: 30px;
+    text-align: center;
+  
+  }
  
 }

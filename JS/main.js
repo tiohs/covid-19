@@ -1,150 +1,116 @@
-﻿// 'Elena Hamilton'.match(/ha/gi)
-(async function () {
-    var state = {
-        state: false,
-        setState: function (valor) {
-            return state.state = valor;
-        },
-        dados: '',
-    }
+﻿//Make Request API 
+class CovidAPI {
+        // Query the rest api with a currency and a country 
+        async queryAPI(country) {
+            // Query the URL
+            const url = await fetch(`https://corona.lmao.ninja/countries/${country}`);
+  
+            // Return as json
+            const result = await url.json();
+  
+            // Return the object
+            return {
+                 result
+            }
+  
+       }
+}
 
-    await axios({
-        "method": "GET",
-        "url": "https://covid-193.p.rapidapi.com/statistics",
-        "headers": {
-            "content-type": "application/octet-stream",
-            "x-rapidapi-host": "covid-193.p.rapidapi.com",
-            "x-rapidapi-key": "00c807a539msh1b3934baa63aa46p1456f6jsnbd0191efd24b"
-        }
-    }).then((response) => {
-        return response.data;
-    }).then((date) => {
-        state.dados = date;
-        document.querySelector("#valor").innerHTML = JSON.stringify(date);
-    }).catch((error) => {
-        console.log(error)
-    });
-    document.querySelector('button.button').addEventListener('click', loadCountry);
 
-    function show(e) {
+// HMTML 
+class UI {
+
+    showStateContruy(e) {
         return document.querySelector('[data-js="result"]').innerHTML = `
-        <div>
-        <h1> ${e.country} </h1>
-        </div>
-        <span>Data ${e.time.slice(0,10)}</span>
-        <div id="estatistica">
-            <div>
-                <h3>Casos Novos</h3>
-                <span>${e.cases.new}</span>
-            </div>
-            <div>
-                <h3>Total</h3>
-                <span>${e.cases.total}</span>
-            </div>
-            <div>
-                <h3>Ativo</h3>
-                <span>${e.cases.active}</span>
-            </div>
-            <div>
-                <h3>Crítico</h3>
-                <span>${e.cases.critical}</span>
-            </div>
-            <div>
-                <h3>Recuperado</h3>
-                <span>${e.cases.recovered}</span>
-            </div>
-            
-            <div>
-                <h3>Total de Mortes</h3>
-                <span>${e.deaths.total}</span>
-            </div>
-        </div>
+       Olá
         `;
     }
+    // Prints the spinner
+    showSpinner() {
+        const spinnerGIF = document.createElement('img');
+        spinnerGIF.src = 'image/loading.gif';
+        document.querySelector('[data-js="result"]').appendChild(spinnerGIF);
+   }
+   // Print the Erro !
+   showError (){
+    document.querySelector('[data-js="result"]').innerHTML = `<p> Erro ao encontrar o País ! -_-<p>`;
+   }
+}
 
-    function loadCountry() {
-        const input = document.querySelector('input').value;
-        // img in loading 
 
-        document.querySelector('[data-js="result"]').innerHTML = `
-            <img
-                src="./image/loading.gif"
-                alt="Covid-19"
-                class="loading"
-            />`;
-        state.dados.response.forEach((e, id) => {
-            if (e.country.includes(input.slice(0, 1).toLocaleUpperCase() + input.slice(1))) {
-                show(e);
-                state.setState(true);
-            }
-        });
-        // Fazendo requisição 
 
-        // Caso não tiver valor 
-        if (!state.state) {
-            document.querySelector('[data-js="result"]').innerHTML = `
-            <h2> País não encontrado ! -_- </h2>
-    
-    `;
-        }
+// instancie the class 
+const covidAPI = new CovidAPI();
+const ui = new UI(); 
+
+document.querySelector('button.button').addEventListener('click', findCountry)
+
+function findCountry(){
+    const input = document.querySelector('input').value;
+    if(input){
+        covidAPI.queryAPI(input)
+            .then((data)=> {
+                const {country, cases, todayCases, deaths, todayDeaths, recovered} = data.result;
+            })
     }
+}
 
-})();
+
 
 /* Auto complete */
-(async function () {
-    const valorCountry = {
-        stateGet: [],
-        stateSet: function (valor) {
-            return this.stateGet = valor;
-        },
-        autoComplete: function (country) {
-            const countryComplete = this.stateGet;
-            return countryComplete.filter((value) => {
-                return value.country.includes(country);
-            })
-        }
-    };
-    const Sugestao = document.querySelector('#sugestao');
-    function addEvente(){      
-        document.querySelectorAll('.sugg').forEach((a)=>{
-            a.addEventListener('click', ()=>{
-                document.querySelector('input').value = a.childNodes[0].wholeText;
-                Sugestao.innerHTML = '';
-                loadCountry();
-            })
-        })
-    }
-    await fetch('./JS/req.json')
-        .then((dados) => dados.json())
-        .then((dados) => {
-            return valorCountry.stateSet(dados.response);
-        })
-        .catch((error) => {
-            console.log(error)
-        });
+// (async function () {
+//     const valorCountry = {
+//         stateGet: [],
+//         stateSet: function (valor) {
+//             return this.stateGet = valor;
+//         },
+//         autoComplete: function (country) {
+//             const countryComplete = this.stateGet;
+//             return countryComplete.filter((value) => {
+//                 return value.country.includes(country);
+//             })
+//         }
+//     };
+//     const Sugestao = document.querySelector('#sugestao');
+//     function addEvente(){      
+//         document.querySelectorAll('.sugg').forEach((a)=>{
+//             a.addEventListener('click', ()=>{
+//                 document.querySelector('input').value = a.childNodes[0].wholeText;
+//                 Sugestao.innerHTML = '';
+//                 loadCountry();
+//             })
+//         })
+//     }
+//     await fetch('./JS/req.json')
+//         .then((dados) => dados.json())
+//         .then((dados) => {
+//             return valorCountry.stateSet(dados.response);
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         });
 
-    document.querySelector('#input').addEventListener("input", autocompleteDisplay)
+//     document.querySelector('#input').addEventListener("input", autocompleteDisplay)
 
-    function autocompleteDisplay({ target }) {
-        const dataCamp = target.value;
-        if (dataCamp.length) {
-            const valueComplet = valorCountry.autoComplete(dataCamp);
-            Sugestao.innerHTML = ``;
-            for (let index = 0; index < 3; index++) {
-                if(valueComplet[index]){
-                    Sugestao.innerHTML += `
-                    <p class="sugg">${valueComplet[index].country}</p>
-                    `;
-                }
+//     function autocompleteDisplay({ target }) {
+//         const dataCamp = target.value;
+//         if (dataCamp.length) {
+//             const valueComplet = valorCountry.autoComplete(dataCamp);
+//             Sugestao.innerHTML = ``;
+//             for (let index = 0; index < 3; index++) {
+//                 if(valueComplet[index]){
+//                     Sugestao.innerHTML += `
+//                     <p class="sugg">${valueComplet[index].country}</p>
+//                     `;
+//                 }
                 
-            }
-            if(!!valueComplet[0]){
-                addEvente();
-            }
-        } else {
-            Sugestao.innerHTML = ``;
-        }
+//             }
+//             if(!!valueComplet[0]){
+//                 addEvente();
+//             }
+//         } else {
+//             Sugestao.innerHTML = ``;
+//         }
 
-    }
-})();
+//     }
+// })();

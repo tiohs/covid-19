@@ -234,30 +234,68 @@ section.containerr {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border: 1px solid red;
+  text-align: center;
+}
+section.containerr img{
+ 
+  height: 100px;
 }
 div#valueContruy {
-    border: 1px solid red;
+    margin-top: 20px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row;
-    word-wrap: break-word;  
     flex-wrap: wrap; 
-    
     align-items: center;
-    margin: 0 auto;
+    justify-content: center;
+}
+.color1 { 
+  color: #28a745 !important;
+}
+.border1 {
+  border: 1px solid #28a745 !important;
+}
+.color2 { 
+  color: #f1ed00 !important;
+}
+.border2 {
+  border: 1px solid #f1ed00!important;
+}
+.color3 { 
+  color: #286aa7 !important;
+}
+.border3 {
+  border: 1px solid #286aa7 !important;
 }
 div#valueContruy div{
   width: 200px;
   position: relative;
-  border: 1px solid red;
-  margin: 10px;
+  margin: 20px 10px 10px 10px;
   text-align: center;
-
+  border-radius: 5px !important;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+div#valueContruy div .card{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 70%;
+  top: -35px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #fff;
+}
+div#valueContruy div .card i{
+  align-items: center;
+  position: absolute;
+  font-size: 2.5rem;
+  left: 25%;
+  top: 20%;
 }
 div#valueContruy h2, span{
-  padding: 20px;
+  padding: 30px 10px 10px 10px;
 }
 div#valueContruy span {
   font-size: 2.5rem;
@@ -273,25 +311,33 @@ div#sobre {
     -ms-flex-item-align: center;
 }
 
-@media (max-width: 376px){
+@media (max-width: 425px){
   html {
       font-size: 50%;
   }
-  div#estatistica div{
-    width: 150px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    -ms-flex-item-align: center;
-    margin-bottom: 10px;
-  }
+  div#valueContruy div .card{
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 85%;
+  top: -35px;
+  border-radius: 50%;
+  text-align: center;
+}
+div#valueContruy div .card i{
+  align-items: center;
+  position: absolute;
+  font-size: 2.5rem;
+  left: 30%;
+  top: 30%;
+}
   div#valueContruy div{
-    width: 500px;
+    width: 100%;
     position: relative;
-    border: 1px solid red;
-    margin: 30px;
+    margin: 10px;
     text-align: center;
-  
+    border-radius: 5px !important;
   }
  
 }

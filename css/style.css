@@ -13,12 +13,13 @@
   margin: 0;
   padding: 0;
   outline: 0;
+  letter-spacing: 1px;
 }
 .logo {
   margin: 1px;
   font-size: 2.5rem;
   color: #fff;
-  background-color: #28a745;
+  background-color: #2a6d39;
   border-radius: 20px;
   padding: 8px;
  
@@ -63,7 +64,7 @@ span {
   font-size: 1.6rem;
 }
 header {
-  background-color: #28a745;
+  background-color: #2a6d39;
 }
 
 header .container {
@@ -128,13 +129,13 @@ section.containerSobre > div {
 section.containerSobre > div i{
   margin-top: 80px;
   font-size: 4.6rem;
-  color: #28a745;
+  color: #2a6d39;
 }
 
 
 
 section.container input {
-  border: 2px solid #28a745;
+  border: 2px solid #2a6d39;
   border-radius: 2px;
   height: 45px;
   padding: 0 15px;
@@ -198,7 +199,7 @@ div#sobre > div {
   font-size: 1.6rem;
   font-weight: 600;
   color: #fff;
-  background-color: #28a745;
+  background-color: #2a6d39;
   margin: 15px 0px 0px;
   padding: 12px 30px;
   text-decoration: none;
@@ -251,22 +252,22 @@ div#valueContruy {
     justify-content: center;
 }
 .color1 { 
-  color: #28a745 !important;
+  color: rgba(220, 53, 69, 1) !important;
 }
 .border1 {
-  border: 1px solid #28a745 !important;
+  border: 1px solid rgba(220, 53, 69, 1) !important;
 }
 .color2 { 
-  color: #f1ed00 !important;
+  color: rgba(40, 167, 69, 1) !important;
 }
 .border2 {
-  border: 1px solid #f1ed00!important;
+  border: 1px solid rgba(40, 167, 69, 1) !important;
 }
 .color3 { 
-  color: #286aa7 !important;
+  color: rgba(255, 193, 7, 1)!important;
 }
 .border3 {
-  border: 1px solid #286aa7 !important;
+  border: 1px solid rgba(255, 193, 7, 1) !important;
 }
 div#valueContruy div{
   width: 200px;
@@ -281,11 +282,12 @@ div#valueContruy div .card{
   width: 50px;
   height: 50px;
   position: absolute;
-  left: 70%;
-  top: -35px;
+  left: 33%;
+  top: -40px;
   border-radius: 50%;
   text-align: center;
   background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
 }
 div#valueContruy div .card i{
   align-items: center;

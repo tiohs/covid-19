@@ -1,4 +1,4 @@
-﻿//Make Request API 
+﻿// Make Request API 
 class CovidAPI {
         // Query the rest api with a currency and a country 
         async queryAPI(country) {

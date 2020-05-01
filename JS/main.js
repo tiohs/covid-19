@@ -1,23 +1,23 @@
-﻿// Make Request API 
+﻿// Make Request API
 class CovidAPI {
-        // Query the rest api with a currency and a country 
+        // Query the rest api with a currency and a country
         async queryAPI(country) {
             // Query the URL
             const url = await fetch(`https://corona.lmao.ninja/countries/${country}`);
-  
+
             // Return as json
             const result = await url.json();
-  
+
             // Return the object
             return {
                  result
             }
-  
+
        }
 }
 
 
-// HMTML 
+// HMTML
 class UI {
 
     showStateContruy(e) {
@@ -39,9 +39,9 @@ class UI {
 
 
 
-// instancie the class 
+// instancie the class
 const covidAPI = new CovidAPI();
-const ui = new UI(); 
+const ui = new UI();
 
 document.querySelector('button.button').addEventListener('click', findCountry)
 
@@ -57,60 +57,60 @@ function findCountry(){
 
 
 
-/* Auto complete */
-// (async function () {
-//     const valorCountry = {
-//         stateGet: [],
-//         stateSet: function (valor) {
-//             return this.stateGet = valor;
-//         },
-//         autoComplete: function (country) {
-//             const countryComplete = this.stateGet;
-//             return countryComplete.filter((value) => {
-//                 return value.country.includes(country);
-//             })
-//         }
-//     };
-//     const Sugestao = document.querySelector('#sugestao');
-//     function addEvente(){      
-//         document.querySelectorAll('.sugg').forEach((a)=>{
-//             a.addEventListener('click', ()=>{
-//                 document.querySelector('input').value = a.childNodes[0].wholeText;
-//                 Sugestao.innerHTML = '';
-//                 loadCountry();
-//             })
-//         })
-//     }
-//     await fetch('./JS/req.json')
-//         .then((dados) => dados.json())
-//         .then((dados) => {
-//             return valorCountry.stateSet(dados.response);
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         });
+// /* Auto complete */
+// // (async function () {
+// //     const valorCountry = {
+// //         stateGet: [],
+// //         stateSet: function (valor) {
+// //             return this.stateGet = valor;
+// //         },
+// //         autoComplete: function (country) {
+// //             const countryComplete = this.stateGet;
+// //             return countryComplete.filter((value) => {
+// //                 return value.country.includes(country);
+// //             })
+// //         }
+// //     };
+// //     const Sugestao = document.querySelector('#sugestao');
+// //     function addEvente(){
+// //         document.querySelectorAll('.sugg').forEach((a)=>{
+// //             a.addEventListener('click', ()=>{
+// //                 document.querySelector('input').value = a.childNodes[0].wholeText;
+// //                 Sugestao.innerHTML = '';
+// //                 loadCountry();
+// //             })
+// //         })
+// //     }
+// //     await fetch('./JS/req.json')
+// //         .then((dados) => dados.json())
+// //         .then((dados) => {
+// //             return valorCountry.stateSet(dados.response);
+// //         })
+// //         .catch((error) => {
+// //             console.log(error)
+// //         });
 
-//     document.querySelector('#input').addEventListener("input", autocompleteDisplay)
+// //     document.querySelector('#input').addEventListener("input", autocompleteDisplay)
 
-//     function autocompleteDisplay({ target }) {
-//         const dataCamp = target.value;
-//         if (dataCamp.length) {
-//             const valueComplet = valorCountry.autoComplete(dataCamp);
-//             Sugestao.innerHTML = ``;
-//             for (let index = 0; index < 3; index++) {
-//                 if(valueComplet[index]){
-//                     Sugestao.innerHTML += `
-//                     <p class="sugg">${valueComplet[index].country}</p>
-//                     `;
-//                 }
-                
-//             }
-//             if(!!valueComplet[0]){
-//                 addEvente();
-//             }
-//         } else {
-//             Sugestao.innerHTML = ``;
-//         }
+// //     function autocompleteDisplay({ target }) {
+// //         const dataCamp = target.value;
+// //         if (dataCamp.length) {
+// //             const valueComplet = valorCountry.autoComplete(dataCamp);
+// //             Sugestao.innerHTML = ``;
+// //             for (let index = 0; index < 3; index++) {
+// //                 if(valueComplet[index]){
+// //                     Sugestao.innerHTML += `
+// //                     <p class="sugg">${valueComplet[index].country}</p>
+// //                     `;
+// //                 }
 
-//     }
-// })();
+// //             }
+// //             if(!!valueComplet[0]){
+// //                 addEvente();
+// //             }
+// //         } else {
+// //             Sugestao.innerHTML = ``;
+// //         }
+
+// //     }
+// // })();

@@ -38,7 +38,7 @@
 html{
     font-size: 62.5%;
 }
-body {
+body { 
     font-size: 1.6rem;
 }
 html,
@@ -183,6 +183,7 @@ section.container > p {
 div#sobre p, h2{
   padding: 20px 20px 1px 20px;
   align-items: center;
+  margin-bottom: .5rem;
 }
 div#sobre > div {
   box-shadow: -1px 1px 0px 2px rgba(0,0,0, 0.05);
@@ -238,7 +239,7 @@ section.containerr {
   text-align: center;
 }
 section.containerr img{
- 
+  margin-bottom: .5rem;
   height: 100px;
 }
 div#valueContruy {

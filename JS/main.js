@@ -19,14 +19,20 @@ class CovidAPI {
 
 // HMTML
 class UI {
-
+    // async showCont(numberContry){
+        
+    //     document.querySelector('[data-js="confirmados"]');
+    //     document.querySelector('[data-js="activos"]');
+    //     document.querySelector('[data-js="recuperados"]');
+    //     document.querySelector('[data-js="obitos"]');
+    // }
     showStateContruy(e) {
         return document.querySelector('[data-js="result"]').innerHTML = `
        Olá
         `;
     }
     // Prints the spinner
-    showSpinner() {
+   showSpinner() {
         const spinnerGIF = document.createElement('img');
         spinnerGIF.src = 'image/loading.gif';
         document.querySelector('[data-js="result"]').appendChild(spinnerGIF);
@@ -48,6 +54,10 @@ document.querySelector('button.button').addEventListener('click', findCountry)
 function findCountry(){
     const input = document.querySelector('input').value;
     if(input){
+        document.querySelector('[data-js="result"]').innerHTML = '';
+        setTimeout(()=>{
+            ui.showSpinner();
+        }, 3000);
         covidAPI.queryAPI(input)
             .then((data)=> {
                 const {country, cases, todayCases, deaths, todayDeaths, recovered} = data.result;

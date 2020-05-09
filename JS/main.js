@@ -3,15 +3,14 @@ class CovidAPI {
         // Query the rest api with a currency and a country
         async queryAPI(country) {
             // Query the URL
-            const url = await fetch(`https://corona.lmao.ninja/countries/${country}`);
+            const url = await fetch('./JS/req.json');
 
             // Return as json
             const result = await url.json();
 
             // Return the object
-            return {
-                 result
-            }
+            return result;
+            
 
        }
 }
@@ -19,27 +18,49 @@ class CovidAPI {
 
 // HMTML
 class UI {
-    // async showCont(numberContry){
-        
-    //     document.querySelector('[data-js="confirmados"]');
-    //     document.querySelector('[data-js="activos"]');
-    //     document.querySelector('[data-js="recuperados"]');
-    //     document.querySelector('[data-js="obitos"]');
-    // }
+    constructor(elementShow){
+        this.elementShow = elementShow;
+    }
     showStateContruy(e) {
-        return document.querySelector('[data-js="result"]').innerHTML = `
-       Olá
+        return this.elementShow.innerHTML = `
+        <h2> Angola </h2>
+        <img src="./image/ao.png" alt="">
+        <p>Data de atualização : ${e.cases.day}</p>
+        <div id="valueContruy">
+          <div class="border1">
+
+             <div class="card border1" ><i class="fas fa-briefcase color1"></i></div>
+            <h2 class="color1">CASOS CONFIRMADOS</h2>
+            <span class="color1" data-js="confirmados">${e.cases.total}</span>
+          </div>
+          <div class="border2 color2">
+             <div class="card border2" ><i class="fas fa-check-circle"></i></div>
+            <h2 class="color2">CASOS ATIVOS</h2>
+            <span data-js="activos">${e.cases.active}</span>
+          </div>
+          <div class="border3 color3">
+             <div class="card border3"><i class="fas fa-child"></i></div>
+            <h2 class="color3">RECUPERADO</h2>
+            <span data-js="recuperados">${e.cases.recovered}</span>
+          </div>
+          <div>
+             <div class="card"><i class="fas fa-cross"></i></div>
+            <h2>ÓBITOS</h2>
+            <span data-js="obitos">${e.deaths.total}</span>
+          </div>
+        </div>
         `;
     }
     // Prints the spinner
    showSpinner() {
+        this.elementShow.innerHTML = '';
         const spinnerGIF = document.createElement('img');
         spinnerGIF.src = 'image/loading.gif';
-        document.querySelector('[data-js="result"]').appendChild(spinnerGIF);
+        this.elementShow.appendChild(spinnerGIF);
    }
    // Print the Erro !
    showError (){
-    document.querySelector('[data-js="result"]').innerHTML = `<p> Erro ao encontrar o País ! -_-<p>`;
+    this.elementShow.innerHTML = `<p> Erro ao encontrar o País ! -_-<p>`;
    }
 }
 
@@ -47,22 +68,22 @@ class UI {
 
 // instancie the class
 const covidAPI = new CovidAPI();
-const ui = new UI();
+const ui = new UI(document.querySelector('[data-js="result"]'));
 
 document.querySelector('button.button').addEventListener('click', findCountry)
+const input = document.querySelector('#input');
 
 function findCountry(){
-    const input = document.querySelector('input').value;
-    if(input){
-        document.querySelector('[data-js="result"]').innerHTML = '';
-        setTimeout(()=>{
+    var inputValor = input.value;
+    covidAPI.queryAPI(inputValor)
+        .then((data)=> {
             ui.showSpinner();
-        }, 3000);
-        covidAPI.queryAPI(input)
-            .then((data)=> {
-                const {country, cases, todayCases, deaths, todayDeaths, recovered} = data.result;
-            })
-    }
+            setTimeout(() => {
+                const countryFind = data.response.find(resul => resul.country === inputValor);
+                console.log(countryFind);
+                ui.showStateContruy(countryFind);
+            }, 3000);    
+        });
 }
 
 

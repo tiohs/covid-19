@@ -10,8 +10,6 @@ class CovidAPI {
 
             // Return the object
             return result;
-            
-
        }
 }
 
@@ -23,9 +21,6 @@ class UI {
     }
     showStateContruy(e) {
         return this.elementShow.innerHTML = `
-        <h2> Angola </h2>
-        <img src="./image/ao.png" alt="">
-        <p>Data de atualização : ${e.cases.day}</p>
         <div id="valueContruy">
           <div class="border1">
 
@@ -51,6 +46,20 @@ class UI {
         </div>
         `;
     }
+//     ${countryFind.cases.total}
+// ${countryFind.cases.active}
+// ${countryFind.cases.recovered}
+// ${countryFind.deaths.total}
+    showStateContruyMapa(tooltip){
+      var That = this;
+      covidAPI.queryAPI(tooltip.text())
+        .then((data)=> {
+          const countryFind = data.response.find(resul => resul.country === tooltip.text());
+          That.showStateContruy(countryFind);
+          // tooltip.selector.innerHTML = tooltip.text() + '  CASOS CONFIRMADOS ' + countryFind.cases.total + ' <br> CASOS ATIVOS  RECUPERADO  ÓBITOS ';  
+        });
+       
+    }
     // Prints the spinner
    showSpinner() {
         this.elementShow.innerHTML = '';
@@ -62,6 +71,7 @@ class UI {
    showError (){
     this.elementShow.innerHTML = `<p> Erro ao encontrar o País ! -_-<p>`;
    }
+
 }
 
 
@@ -69,7 +79,24 @@ class UI {
 // instancie the class
 const covidAPI = new CovidAPI();
 const ui = new UI(document.querySelector('[data-js="result"]'));
-
+const map = new JsVectorMap({
+  selector: '#map',
+  map: 'world',
+  regionsSelectable: true,
+  markersSelectable: true,
+  onRegionTooltipShow : (tooltip) => {  
+    ui.showStateContruyMapa(tooltip); 
+  },
+  onRegionSelected: function (index, isSelected, selectedRegions) {
+    map.clearSelectedRegions();
+    map.addMarker('EG', {
+      name: 'Egypt',
+      coords: [26.8, 30],
+      label: 'Egypt',
+      offset: [0, 0]
+    });
+  }
+});
 document.querySelector('button.button').addEventListener('click', findCountry)
 const input = document.querySelector('#input');
 
@@ -80,7 +107,6 @@ function findCountry(){
             ui.showSpinner();
             setTimeout(() => {
                 const countryFind = data.response.find(resul => resul.country === inputValor);
-                console.log(countryFind);
                 ui.showStateContruy(countryFind);
             }, 3000);    
         });

@@ -25,12 +25,12 @@ class UI {
           <div class="border1">
 
              <div class="card border1" ><i class="fas fa-briefcase color1"></i></div>
-            <h2 class="color1">CASOS CONFIRMADOS</h2>
+            <h2 class="color1">CONFIRMADOS</h2>
             <span class="color1" data-js="confirmados">${e.cases.total}</span>
           </div>
           <div class="border2 color2">
              <div class="card border2" ><i class="fas fa-check-circle"></i></div>
-            <h2 class="color2">CASOS ATIVOS</h2>
+            <h2 class="color2">ATIVOS</h2>
             <span data-js="activos">${e.cases.active}</span>
           </div>
           <div class="border3 color3">
@@ -46,17 +46,12 @@ class UI {
         </div>
         `;
     }
-//     ${countryFind.cases.total}
-// ${countryFind.cases.active}
-// ${countryFind.cases.recovered}
-// ${countryFind.deaths.total}
     showStateContruyMapa(tooltip){
       var That = this;
       covidAPI.queryAPI(tooltip.text())
         .then((data)=> {
           const countryFind = data.response.find(resul => resul.country === tooltip.text());
           That.showStateContruy(countryFind);
-          // tooltip.selector.innerHTML = tooltip.text() + '  CASOS CONFIRMADOS ' + countryFind.cases.total + ' <br> CASOS ATIVOS  RECUPERADO  ÓBITOS ';  
         });
        
     }
@@ -82,21 +77,11 @@ const ui = new UI(document.querySelector('[data-js="result"]'));
 const map = new JsVectorMap({
   selector: '#map',
   map: 'world',
-  regionsSelectable: true,
-  markersSelectable: true,
   onRegionTooltipShow : (tooltip) => {  
     ui.showStateContruyMapa(tooltip); 
-  },
-  onRegionSelected: function (index, isSelected, selectedRegions) {
-    map.clearSelectedRegions();
-    map.addMarker('EG', {
-      name: 'Egypt',
-      coords: [26.8, 30],
-      label: 'Egypt',
-      offset: [0, 0]
-    });
   }
 });
+
 document.querySelector('button.button').addEventListener('click', findCountry)
 const input = document.querySelector('#input');
 

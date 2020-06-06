@@ -1,26 +1,25 @@
 ﻿// Make Request API
 class CovidAPI {
-        // Query the rest api with a currency and a country
-        async queryAPI(country) {
-            // Query the URL
-            const url = await fetch('./JS/req.json');
+	// Query the rest api with a currency and a country
+	async queryAPI(country) {
+		// Query the URL
+		const url = await fetch("./JS/req.json");
+		// const url = await fetch(`https://corona.lmao.ninja/countries/${country}`);
+		// Return as json
+		const result = await url.json();
 
-            // Return as json
-            const result = await url.json();
-
-            // Return the object
-            return result;
-       }
+		// Return the object
+		return result;
+	}
 }
-
 
 // HMTML
 class UI {
-    constructor(elementShow){
-        this.elementShow = elementShow;
-    }
-    showStateContruy(e) {
-        return this.elementShow.innerHTML = `
+	constructor(elementShow) {
+		this.elementShow = elementShow;
+	}
+	showStateContruy(e) {
+		return (this.elementShow.innerHTML = `
         <div id="valueContruy">
           <div class="border1">
 
@@ -44,60 +43,56 @@ class UI {
             <span data-js="obitos">${e.deaths.total}</span>
           </div>
         </div>
-        `;
-    }
-    showStateContruyMapa(tooltip){
-      var That = this;
-      covidAPI.queryAPI(tooltip.text())
-        .then((data)=> {
-          const countryFind = data.response.find(resul => resul.country === tooltip.text());
-          That.showStateContruy(countryFind);
-        });
-       
-    }
-    // Prints the spinner
-   showSpinner() {
-        this.elementShow.innerHTML = '';
-        const spinnerGIF = document.createElement('img');
-        spinnerGIF.src = 'image/loading.gif';
-        this.elementShow.appendChild(spinnerGIF);
-   }
-   // Print the Erro !
-   showError (){
-    this.elementShow.innerHTML = `<p> Erro ao encontrar o País ! -_-<p>`;
-   }
-
+        `);
+	}
+	showStateContruyMapa(tooltip) {
+		var That = this;
+		covidAPI.queryAPI(tooltip.text()).then(data => {
+			const countryFind = data.response.find(
+				resul => resul.country === tooltip.text(),
+			);
+			That.showStateContruy(countryFind);
+		});
+	}
+	// Prints the spinner
+	showSpinner() {
+		this.elementShow.innerHTML = "";
+		const spinnerGIF = document.createElement("img");
+		spinnerGIF.src = "image/loading.gif";
+		this.elementShow.appendChild(spinnerGIF);
+	}
+	// Print the Erro !
+	showError() {
+		this.elementShow.innerHTML = `<p> Erro ao encontrar o País ! -_-<p>`;
+	}
 }
-
-
 
 // instancie the class
 const covidAPI = new CovidAPI();
 const ui = new UI(document.querySelector('[data-js="result"]'));
 const map = new JsVectorMap({
-  selector: '#map',
-  map: 'world',
-  onRegionTooltipShow : (tooltip) => {  
-    ui.showStateContruyMapa(tooltip); 
-  }
+	selector: "#map",
+	map: "world",
+	onRegionTooltipShow: tooltip => {
+		ui.showStateContruyMapa(tooltip);
+	},
 });
 
-document.querySelector('button.button').addEventListener('click', findCountry)
-const input = document.querySelector('#input');
+document.querySelector("button.button").addEventListener("click", findCountry);
+const input = document.querySelector("#input");
 
-function findCountry(){
-    var inputValor = input.value;
-    covidAPI.queryAPI(inputValor)
-        .then((data)=> {
-            ui.showSpinner();
-            setTimeout(() => {
-                const countryFind = data.response.find(resul => resul.country === inputValor);
-                ui.showStateContruy(countryFind);
-            }, 3000);    
-        });
+function findCountry() {
+	var inputValor = input.value;
+	covidAPI.queryAPI(inputValor).then(data => {
+		ui.showSpinner();
+		setTimeout(() => {
+			const countryFind = data.response.find(
+				resul => resul.country === inputValor,
+			);
+			ui.showStateContruy(countryFind);
+		}, 3000);
+	});
 }
-
-
 
 // /* Auto complete */
 // // (async function () {

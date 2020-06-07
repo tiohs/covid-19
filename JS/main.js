@@ -20,27 +20,28 @@ class UI {
 	}
 	showStateContruy(e) {
 		return (this.elementShow.innerHTML = `
+		<h2> Angola </h2>
+        <img src="./image/ao.png" alt="">
         <div id="valueContruy">
           <div class="border1">
-
              <div class="card border1" ><i class="fas fa-briefcase color1"></i></div>
             <h2 class="color1">CONFIRMADOS</h2>
-            <span class="color1" data-js="confirmados">${e.cases.total}</span>
+            <span class="color1" data-js="confirmados">${e.cases}</span>
           </div>
           <div class="border2 color2">
              <div class="card border2" ><i class="fas fa-check-circle"></i></div>
             <h2 class="color2">ATIVOS</h2>
-            <span data-js="activos">${e.cases.active}</span>
+            <span data-js="activos">${e.active}</span>
           </div>
           <div class="border3 color3">
              <div class="card border3"><i class="fas fa-child"></i></div>
             <h2 class="color3">RECUPERADO</h2>
-            <span data-js="recuperados">${e.cases.recovered}</span>
+            <span data-js="recuperados">${e.recovered}</span>
           </div>
           <div>
              <div class="card"><i class="fas fa-cross"></i></div>
             <h2>ÓBITOS</h2>
-            <span data-js="obitos">${e.deaths.total}</span>
+            <span data-js="obitos">${e.deaths}</span>
           </div>
         </div>
         `);
@@ -48,10 +49,10 @@ class UI {
 	showStateContruyMapa(tooltip) {
 		var That = this;
 		covidAPI.queryAPI(tooltip.text()).then(data => {
-			const countryFind = data.response.find(
-				resul => resul.country === tooltip.text(),
-			);
-			That.showStateContruy(countryFind);
+			// const countryFind = data.response.find(
+			// 	resul => resul.country === tooltip.text(),
+			// );
+			That.showStateContruy(data);
 		});
 	}
 	// Prints the spinner

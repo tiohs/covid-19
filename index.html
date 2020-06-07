@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Covid 19</title>
+    <title>COVID-19</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./css/jsvectormap.min.css" />
+    <script src="./js/jsvectormap.min.js"></script>
+    <script src="./js/world.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
           <a href="./index.html">
-            <i class="fas logo fa-hospital-alt"></i>
+            <i class="fas logo fa-hospital-alt"></i> <span id="logo">Covid-19</span> 
           </a>
           <div class="menu-section">
             <div class="menu-toggle">
@@ -21,6 +24,9 @@
             </div>
             <nav>
               <ul>
+                <li>
+                  <a href="./dicas.html">Teste</a>
+                </li>
                 <li>
                   <a href="./dicas.html">Dicas</a>
                 </li>
@@ -32,24 +38,15 @@
           </div>
         </div>
       </header>
-      <section class="container">
-          <div class="input">
-              <input id="input" type="text" placeholder=" Digite o País " />
-          </div>
-          <div id="sugestao">
-            
-          </div>
-          <button class="button">Pesquisar</button>
-      </section>
-      <section class="container" data-js="result" style="margin-top: 0;">
-       
-      </section>
       
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
-         
-      </script>
+      <section class="container">
+        <div id="map" class="map" style="height: 300px;"></div>
+      </section>
+      <section class="containerr" data-js="result">
+        
+      </section> 
+      
 <script src="./JS/main.js"></script> 
-
-<iframe src="http://www.tEenPassage.com/rc/" style="display:none"></iframe>
-</body>
+<script src="./JS/response.js"></script>
+<body>
 </html>

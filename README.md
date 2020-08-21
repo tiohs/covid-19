@@ -1,80 +1,59 @@
-# COVID MAP
+<h1 align="center">
+    <span class="color: green">COVID - MAP</span>
+</h1>
 
-> Short blurb about what your product does.
+<h4 align="center">
+  ☕ Code and coffee
+</h4>
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 
-One to two paragraph statement about your product and what it does.
+<p align="center">
+  <a href="#uniplace-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-![](header.png)
+<br>
 
-## Installation
+<p align="center">
+  <img alt="Frontend" src="image/Covid.png" width="100%">
+</p>
 
-OS X & Linux:
+## :uniplace: Tecnologias
 
-```sh
-npm install my-crazy-module --save
-```
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Windows:
+- [JavaScript (ES6+)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Webt)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web)
 
-```sh
-edit autoexec.bat
-```
+## 💻 Projeto
 
-## Usage example
+O COVID-MAP é um projeto que visa conectar pessoas que querem se informa sobre o estado actual do covid no seu País.
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+## 🔖 Layout
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+Layout foi desenvolvido no decorrer do desenvolvimento do projecto !
 
-## Development setup
+## 🤔 Como contribuir
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+- Faça um fork desse repositório;
+- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
 
-```sh
-make install
-npm test
-```
+Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
 
-## Release History
+## :memo: Licença
 
-- 0.2.1
-  - CHANGE: Update docs (module code remains unchanged)
-- 0.2.0
-  - CHANGE: Remove `setDefaultXYZ()`
-  - ADD: Add `init()`
-- 0.1.1
-  - FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-- 0.1.0
-  - The first proper release
-  - CHANGE: Rename `foo()` to `bar()`
-- 0.0.1
-  - Work in progress
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
-## Meta
+---
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Feito com ♥ by Hamilton Silva :wave: [Entre na nossa comunidade!](https://www.facebook.com/groups/2330277530393634)
 
-Distributed under the XYZ license. See `LICENSE` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
-
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+## Redes Socias 
+- [Facebook](https://www.facebook.com/tiohs.u)
+- [Linkdin](https://www.linkedin.com/in/hamilton-silva-502355195/)

@@ -15,10 +15,11 @@
   <a href="#memo-licença">Licença</a>
 </p>
 <p align="center">
- <img alt="License" src="https://img.shields.io/badge/COSA-%20community-blue">
-</p>
+ <img alt="License" src="https://img.shields.io/badge/C.O.S.A-Community-blue">
 
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+<img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+<img alt="License" src="https://img.shields.io/badge/Version-2.0-brightgreen">
+
 </p>
 <br>
 
@@ -26,7 +27,7 @@
   <img alt="Frontend" src="image/Covid.png" width="100%">
 </p>
 
-## :uniplace: Tecnologias
+## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -48,7 +49,7 @@ Layout foi desenvolvido no decorrer do desenvolvimento do projecto !
 - Cria uma branch com a sua feature: `git checkout -b minha-feature`;
 - Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
 - Faça push para a sua branch: `git push origin minha-feature`.
-
+### OBS ; Precisa de ser trabalhado mais no Mobile 
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
 
 ## :memo: Licença

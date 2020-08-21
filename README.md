@@ -1,4 +1,4 @@
-<h1 align="center">
+﻿<h1 align="center">
     <span class="color: green">COVID - MAP</span>
 </h1>
 
@@ -14,7 +14,12 @@
   <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
+<p align="center">
+ <img alt="License" src="https://img.shields.io/badge/COSA-%20community-blue">
+</p>
 
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
 <br>
 
 <p align="center">

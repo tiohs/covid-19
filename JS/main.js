@@ -14,34 +14,6 @@ class CovidAPI {
 		return result;
 	}
 }
-function startQuestion() {
-	var Sintomas = {
-		covid: ["Febre", "Tosse", "Dificuldade para respirar"],
-		resfriado: [
-			"Tosse",
-			"Congestão Nasal",
-			"coriza",
-			"Dor no Corpo",
-			"Dor leve de gargata",
-		],
-		gripe: [
-			"febre",
-			"Dor da garganta",
-			"Tosse",
-			"Dor no Corpo",
-			"Dor de cabeça",
-			"Mal-estar",
-			"Secreção nasal",
-		],
-		alergia: [
-			"Corrimento excessivo de muco nasal",
-			"Obstrução, coceira nasal",
-			"Espiros em sequência",
-			"Coceira nos olhos",
-			"Lacrimejamento",
-		],
-	};
-}
 
 // HMTML
 class UI {
@@ -126,61 +98,3 @@ const map = new JsVectorMap({
 		ui.showStateContruyMapa(tooltip);
 	},
 });
-
-// /* Auto complete */
-// // (async function () {
-// //     const valorCountry = {
-// //         stateGet: [],
-// //         stateSet: function (valor) {
-// //             return this.stateGet = valor;
-// //         },
-// //         autoComplete: function (country) {
-// //             const countryComplete = this.stateGet;
-// //             return countryComplete.filter((value) => {
-// //                 return value.country.includes(country);
-// //             })
-// //         }
-// //     };
-// //     const Sugestao = document.querySelector('#sugestao');
-// //     function addEvente(){
-// //         document.querySelectorAll('.sugg').forEach((a)=>{
-// //             a.addEventListener('click', ()=>{
-// //                 document.querySelector('input').value = a.childNodes[0].wholeText;
-// //                 Sugestao.innerHTML = '';
-// //                 loadCountry();
-// //             })
-// //         })
-// //     }
-// //     await fetch('./JS/req.json')
-// //         .then((dados) => dados.json())
-// //         .then((dados) => {
-// //             return valorCountry.stateSet(dados.response);
-// //         })
-// //         .catch((error) => {
-// //             console.log(error)
-// //         });
-
-// //     document.querySelector('#input').addEventListener("input", autocompleteDisplay)
-
-// //     function autocompleteDisplay({ target }) {
-// //         const dataCamp = target.value;
-// //         if (dataCamp.length) {
-// //             const valueComplet = valorCountry.autoComplete(dataCamp);
-// //             Sugestao.innerHTML = ``;
-// //             for (let index = 0; index < 3; index++) {
-// //                 if(valueComplet[index]){
-// //                     Sugestao.innerHTML += `
-// //                     <p class="sugg">${valueComplet[index].country}</p>
-// //                     `;
-// //                 }
-
-// //             }
-// //             if(!!valueComplet[0]){
-// //                 addEvente();
-// //             }
-// //         } else {
-// //             Sugestao.innerHTML = ``;
-// //         }
-
-// //     }
-// // })();

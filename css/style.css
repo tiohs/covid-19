@@ -119,7 +119,7 @@ section.container {
   align-items: center;
 }
 section.containerSobre {
-  margin: 50px auto 0;
+  margin: 60px auto 0;
   max-width: 800px;
   width: 100%;
   display: flex;
@@ -137,10 +137,15 @@ section.containerSobre > div i{
   color: #2a6d39;
 }
 
+section.containerSobre div#sobre {
+  display: flex;
+  align-items: center;
+}
 section.containerSobre div#sobre img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+
 }
 
 

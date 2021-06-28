@@ -94,6 +94,9 @@ header nav ul {
 header nav ul li {
   list-style: none;
 }
+header div.container nav ul li a.active {
+  color:rgb(255, 0, 0);
+}
 
 a {
   text-decoration: none;
